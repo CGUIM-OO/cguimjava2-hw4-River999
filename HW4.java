@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.ArrayList;/*資管二乙 B0544214 白柏妤*/
 import java.util.HashMap;
 //import java.util.Scanner;
 public class HW4 {
@@ -6,8 +6,8 @@ public class HW4 {
 		int nDeck=4;
 		Deck deck=new Deck(nDeck);
 		//TODO: please check your output, make sure that 
-		Player player1=new Player("Player 1",100);
-		Player player2=new Player("Player 2",300);
+		Player player1=new Player("Player 1",100);//建立新的物件，名稱是player1(玩家1，籌碼100)
+		Player player2=new Player("Player 2",300);//建立新的物件，名稱是player2(玩家2，籌碼300)
 		player1.sayHello();
 		player2.sayHello();
 		int p1Bet=player1.makeBet();
@@ -62,24 +62,24 @@ public class HW4 {
 				}
 			}
 		}while(hit);
-		if(player1.getTotalValue()>21 && player2.getTotalValue()>21){
+		if(player1.getTotalValue()>21 && player2.getTotalValue()>21){//如果兩位玩家的牌都大於21(透過Player的getTotalValue來算)
 			System.out.println("Need another game");
-		}else if(player1.getTotalValue()<=21&&player2.getTotalValue()>21){
+		}else if(player1.getTotalValue()<=21&&player2.getTotalValue()>21){//如果玩家1的牌小於等於，玩家2的牌大於21(透過Player的getTotalValue來算)
 			System.out.println(player1.getName()+" wins the game");
-			player1.increaseChips(p1Bet);
-			player2.increaseChips(-p2Bet);
-		}else if(player1.getTotalValue()>21&&player2.getTotalValue()<=21){
+			player1.increaseChips(p1Bet);//p1Bet(輸入值)跑至Player的increaseChips(籌碼的變動)
+			player2.increaseChips(-p2Bet);//-p1Bet(輸入值)跑至Player的increaseChips(籌碼的變動)
+		}else if(player1.getTotalValue()>21&&player2.getTotalValue()<=21){//如果玩家2的牌都小於等於，玩家1的牌大於21(透過Player的getTotalValue來算)
 			System.out.println(player2.getName()+" wins the game");
-			player1.increaseChips(-p1Bet);
-			player2.increaseChips(p2Bet);
-		}else if(player1.getTotalValue()>player2.getTotalValue()&&player1.getTotalValue()<=21){
+			player1.increaseChips(-p1Bet);//-p1Bet(輸入值)跑至Player的increaseChips(籌碼的變動)
+			player2.increaseChips(p2Bet);//p1Bet(輸入值)跑至Player的increaseChips(籌碼的變動)
+		}else if(player1.getTotalValue()>player2.getTotalValue()&&player1.getTotalValue()<=21){//如果玩家1的牌大於玩家2的牌且玩家1的牌小於等於21(透過Player的getTotalValue來算)
 			System.out.println(player1.getName()+" wins the game");
-			player1.increaseChips(p1Bet);
-			player2.increaseChips(-p2Bet);
-		}else if(player1.getTotalValue()<player2.getTotalValue()&&player2.getTotalValue()<=21){
+			player1.increaseChips(p1Bet);//p1Bet(輸入值)跑至Player的increaseChips(籌碼的變動)
+			player2.increaseChips(-p2Bet);//-p1Bet(輸入值)跑至Player的increaseChips(籌碼的變動)
+		}else if(player1.getTotalValue()<player2.getTotalValue()&&player2.getTotalValue()<=21){//如果玩家1的牌小於玩家2的牌，且玩家2的牌小於等於21(透過Player的getTotalValue來算)
 			System.out.println(player2.getName()+" wins the game");
-			player1.increaseChips(-p1Bet);
-			player2.increaseChips(p2Bet);
+			player1.increaseChips(-p1Bet);//-p1Bet(輸入值)跑至Player的increaseChips(籌碼的變動)
+			player2.increaseChips(p2Bet);//p1Bet(輸入值)跑至Player的increaseChips(籌碼的變動)
 		}else{
 			System.out.println("Need another game");
 		}
